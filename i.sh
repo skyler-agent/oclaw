@@ -26,7 +26,7 @@ echo "🔌 Enabling minimax-portal-auth plugin..."
 openclaw plugins enable minimax-portal-auth
 
 echo "🔄 Restarting gateway..."
-openclaw gateway restart 2>/dev/null || true
+openclaw gateway restart
 
 echo ""
 echo "✅ Setup complete! Starting OAuth configuration..."
