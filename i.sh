@@ -1,6 +1,6 @@
 #!/bin/bash
 # OpenClaw + MiniMax Portal OAuth Quick Setup Script
-# Usage: curl -fsSL https://raw.githubusercontent.com/skyler-agent/openclaw-minimax-setup/main/install.sh | bash
+# Usage: curl -fsSL https://skyler-agent.github.io/oclaw/i.sh | bash
 
 set -e
 
@@ -21,5 +21,5 @@ echo ""
 echo "✅ Installation complete! Starting OAuth setup..."
 echo ""
 
-# Start interactive onboard process
-exec openclaw onboard --auth-choice minimax-portal
+# Start interactive onboard process (use /dev/tty to enable interaction when run via pipe)
+exec openclaw onboard --auth-choice minimax-portal < /dev/tty
