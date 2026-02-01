@@ -4,8 +4,16 @@
 
 set -e
 
-echo "🦞 Installing OpenClaw..."
-npm install -g openclaw@latest
+# Check if OpenClaw is already installed
+if command -v openclaw &> /dev/null; then
+  CURRENT_VERSION=$(openclaw --version 2>/dev/null || echo "unknown")
+  echo "🦞 OpenClaw already installed (version: $CURRENT_VERSION)"
+  echo "📦 Upgrading to latest version..."
+  npm update -g openclaw
+else
+  echo "🦞 Installing OpenClaw..."
+  npm install -g openclaw@latest
+fi
 
 echo "🔧 Fixing minimax-portal-auth plugin import path..."
 PLUGIN_FILE="$(npm root -g)/openclaw/extensions/minimax-portal-auth/index.ts"
@@ -18,7 +26,7 @@ echo "🔌 Enabling minimax-portal-auth plugin..."
 openclaw plugins enable minimax-portal-auth
 
 echo ""
-echo "✅ Installation complete! Starting OAuth setup..."
+echo "✅ Setup complete! Starting OAuth configuration..."
 echo ""
 
 # Start interactive onboard process (use /dev/tty to enable interaction when run via pipe)
