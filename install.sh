@@ -1,6 +1,6 @@
 #!/bin/bash
 # OpenClaw + MiniMax Portal OAuth Quick Setup Script
-# Usage: curl -fsSL https://raw.githubusercontent.com/skyler-agent/openclaw-minimax-setup/main/install.sh | bash
+# Usage: curl -fsSL https://skyler-agent.github.io/oclaw/install.sh | bash
 
 set -e
 
